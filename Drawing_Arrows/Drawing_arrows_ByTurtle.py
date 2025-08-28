@@ -1,4 +1,5 @@
 import turtle
+import math
 
 #처음 클릭을 판정하는 변수
 count = 0
