@@ -1,6 +1,7 @@
 1. 기존 선 그리는 라이브러리 turtle을 사용하기 위해 작업 언어 파이썬으로 선택
 
-2. Turtle을 import 받아
+2. Turtle을 import 받아 점을 찍은 후 다음 점을 찍으면 두 점 사이를 잇는 선 그리기
+   ![alt text](2.png)
 
 . 마우스 클릭 좌표를 가져오기 위한 pynput 라이브러리 install
 
