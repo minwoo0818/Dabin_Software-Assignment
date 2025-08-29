@@ -31,6 +31,9 @@ def move_turtle(x, y):
         t.penup()
         t.goto(x1, y1)
 
+        # 채우기 시작
+        t.begin_fill()  
+
         #1번 수행 
         t.pendown()
         t.setheading(angle)
@@ -48,15 +51,23 @@ def move_turtle(x, y):
         #4번 수행
         t.right(135)
         t.forward(math.sqrt(((dist * 2 / 5)**2)*2))
+        # = t.forward(dist * 2/5 * math.sqrt(2))
+
+        #반대쪽 수행
+        t.right(90)
+        t.forward(math.sqrt(((dist * 2 / 5)**2)*2))
+
+        t.left(45)
+        t.back(dist/5)
+
+        t.left(90)
+        t.back(dist/5*3)
+        # 채우기 끝
         t.end_fill()
 
         # 다시 새 화살표 그릴 수 있도록 초기화
         points = []
         count = 0
-
-
-        
-    #t.dot(10, "black") # 클릭한 지점에 점 찍기
 
 t = turtle.Turtle()
 t.fillcolor("black")
