@@ -17,9 +17,6 @@ def move_turtle(x, y):
 
         dx, dy = x2 - x1, y2 - y1
         dist = math.hypot(dx, dy)
-        if dist == 0:  # 두 점이 같으면 무시
-            points, count = [], 0
-            return
 
         # 방향 단위벡터 & 수직 단위벡터
         ux, uy = dx/dist, dy/dist
@@ -29,12 +26,15 @@ def move_turtle(x, y):
         shaft_len = dist*3/5
 
         # 꼭짓점 좌표 계산
+        # 화살표 아래 두점 계산
         tail_top    = (x1 + px*half_w, y1 + py*half_w)
         tail_bottom = (x1 - px*half_w, y1 - py*half_w)
 
-        shaft_top    = (x1 + ux*shaft_len + px*half_w, y1 + uy*shaft_len + py*half_w)
+        #tail_top, tail_bottom의 위치에서 각각 2번쨰 점 방향으로 + ux*shaft_len, + uy*shaft_len
+        shaft_top    = (x1 + ux*shaft_len + px*half_w, y1 + uy*shaft_len + py*half_w) 
         shaft_bottom = (x1 + ux*shaft_len - px*half_w, y1 + uy*shaft_len - py*half_w)
 
+        #각각 shaft_top,shaft_bottom에서 tail_top,tail_bottom 갔을떄와 똑같은 거리 만큼 이동
         head_top    = (x1 + ux*shaft_len + px*2*half_w, y1 + uy*shaft_len + py*2*half_w)
         head_bottom = (x1 + ux*shaft_len - px*2*half_w, y1 + uy*shaft_len - py*2*half_w)
 
