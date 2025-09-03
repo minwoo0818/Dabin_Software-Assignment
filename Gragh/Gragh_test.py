@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 x = np.linspace(0, 10, 100)
-y = np.sin(x) + 0.5 * np.sin(100)  # 변화가 급한 구간 포함
+y = np.sin(x) + 0.5 * np.random.randn(100) #sin(100)  # 변화가 급한 구간 포함
 
-# 완화 전: 기울기 그대로 사용
+# 기존 함수
 def raw_error_bounds(x, y, base_error=0.3, slope_factor=0.5):
     dy = np.diff(y)
     dx = np.diff(x)
@@ -13,7 +13,7 @@ def raw_error_bounds(x, y, base_error=0.3, slope_factor=0.5):
     total_error = base_error + slope_factor * raw_slopes
     return y - total_error, y + total_error
 
-# 완화 후: tanh로 부드럽게 조절
+# 새 함수: tanh로 부드럽게 조절 탄젠트 함수로 -1 ~ 1 사이 값으로 바꿔줌
 def softened_error_bounds(x, y, base_error=0.3, slope_factor=0.5):
     dy = np.diff(y)
     dx = np.diff(x)
